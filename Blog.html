@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Example</title>
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+      
+    
+</head>
+<body>
+   
+    <nav> <div class="container nav__container">
+        <a href="index.html"  class="nav__logo"><b>MANIPUR TIMES</b></a> 
+        <ul class="nav_items"> 
+           <li><a href="index.html">Home</a></li>
+            <li><a href="About.html">About</a></li> 
+            <li><a href="services.html">Services</a></li>
+             <li><a href="Blog.html">Blog</a></li>
+              <li><a href="signin.html">SignIn</a></li> 
+              <li class="nav_profile"> 
+               <div class="avatar">
+                   <img src="img/albert.JPG">
+              </div>
+              <ul>
+             
+              <li><a href="dashboard.html">Dashboard</a></li>
+              <li><a href="logout.html">Logout</a></li>
+              </ul>
+                </li>
+             </ul>
+             <button id="open__nav-btn"><i class="uil uil-bars"></i></button>
+             <button id="close__nav-btn"><i class="uil uil-times"></i></button>
+
+           </div>
+        </nav>
+        
+        <header class="category_title">
+            <h2>BLOG PAGE</h2>
+         </header>
+
+         <div class="blog_container">
+            <div class="blog_post">
+                <h2>Post Title</h2>
+                <div class="blog_actions">
+                    <section class="featured">
+                        <div class="container featured_container">
+                            <div class="post_thumbnail">
+                            <img src="img/hello.png.gif">
+                           
+                        </div>
+                        <div class="post_info">
+                            <a href="" class="category_button">News</a>
+                            <h2 class="post_title"><a href="post.html">Manipur Conflict between Meitei and kuki</a></h2>
+                            <p class="post_body">
+                                On 3 May 2023, ethnic violence erupted in India's north-eastern state of Manipur between the Meitei people, a majority that lives in the Imphal Valley,
+                                 and the Kuki-Zo tribal community from the surrounding hills. According to government figures, as of 15 September,175 people have been killed in the violence.
+                            </p>
+                            <div class="post_author">
+                                <div class="post_author-avatar">
+                                    <img src="img/manipur.png.png">
+                                </div>
+                                <div class="Post_author-info">
+                                    <h5>By: MANIPUR WHAT WHEN AND HOW</h5>
+                                    <small>Feb 23, 2024, 4:36</small>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        </div>
+                    </section>
+                    
+                    <button class="like-btn">Like</button>
+                    <button class="reply-btn">Reply</button>
+                </div>
+                <div class="comments">
+                    <h3>Comments</h3>
+                    <ul class="comment-list">
+                        <!-- Comments will be added dynamically here -->
+                    </ul>
+                    <form class="comment-form">
+                        <input type="text" placeholder="Your comment">
+                        <button type="submit">Post Comment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <section class="category_buttons">
+            <div class="container category_buttons-container">
+                <a href="" class="category_button">News</a>
+                <a href="" class="category_button">Traditional Dress & Culture</a>
+                <a href="" class="category_button">Tourist Places</a>
+                <a href="" class="category_button">Cuisine</a>
+                
+            </div>
+        </section>
+    
+         </body>
+         <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const commentForm = document.querySelector('.comment-form');
+                const commentList = document.querySelector('.comment-list');
+            
+                commentForm.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    const commentInput = commentForm.querySelector('input[type="text"]');
+                    const commentText = commentInput.value.trim();
+                    if (commentText !== '') {
+                        const newComment = document.createElement('li');
+                        newComment.classList.add('comment');
+                        newComment.textContent = commentText;
+                        commentList.appendChild(newComment);
+                        commentInput.value = '';
+                    }
+                });
+            
+                const posts = document.querySelectorAll('.post');
+                posts.forEach(post => {
+                    const likeButton = post.querySelector('.like-btn');
+                    const replyButton = post.querySelector('.reply-btn');
+            
+                    likeButton.addEventListener('click', function() {
+                        // Simulate like functionality
+                        likeButton.classList.toggle('liked');
+                    });
+            
+                    replyButton.addEventListener('click', function() {
+                        // Simulate reply functionality
+                        const commentForm = post.querySelector('.comment-form');
+                        commentForm.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                    });
+                });
+            });
+         </script>
+         </html>
+         
